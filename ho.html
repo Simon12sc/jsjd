@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Lukeko maan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>
+        <a href="./index.html">Home</a>
+        </li>
+        <li>
+      <h1>Lukeko Maan</h1>
+        </li>
+        <li>
+          <a href="./sharemy.html">Share My Story</a>
+       </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="searchNav">
+      
+    <input oninput="search(this.value)" placeholder="Search here" style="color: black; padding: 2px;"></input>
+    <a href="" style="color: black;">Favourite</a>
+    </div>
+    
+    <div class="storySuggestion">
+  
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </main>
+  <footer>
+    <ul>
+      <li><a href="">Facebook</a></li>
+      <li><a href="">Instagram</a></li>
+      <li><a href="">Youtube</a></li>
+      <li><a href="">Linkdin</a></li>
+    </ul>
+    
+    
+
+    <p>2022 Lukeko Maan &copy; copyright reserved, Copying our content is strictly prohibited</p>
+    
+    
+    
+  </footer>
+  
+  <script>
+    const storySuggestion=document.getElementsByClassName('storySuggestion')[0];
+    
+    let n=20;
+    let topic=["This is not what","computer boc","we are on my own","What is not important","Why we get theseyui uttguu jjjgg box","i like my life","hjdkdjsjs","bye bye"]
+    let a=0;
+    let target=topic.length;
+    for(let i=0;i<n;i++){
+    storySuggestion.innerHTML+=`
+      <div class="storyBox">
+        <div class="storyImageBox">
+          
+        </div>
+        <div class="storyDiscription">
+          <h1>${topic[a]}</h1>
+          <p>discription</p>
+          <a href="./${topic[a]}">Read Now</a>
+        </div>
+      </div>
+      `
+      if(a===target){
+        a=0;
+      }else{
+        a++;
+      }
+    }
+    
+    let s=document.getElementsByClassName('storyBox');
+  
+  function search(val){
+  val=val.toLowerCase();
+      Array.from(s).forEach(e=>{
+       storyTopic=e.innerHTML.split('<h1>')[1].split('</h1>')[0].toLowerCase();
+       if(storyTopic.includes(val)){
+         e.style.display='block';
+
+       }else if(val.length===0){
+         e.style.display='block';
+      
+       }else{
+         e.style.display='none';
+       }
+      })
+    
+      
+      
+  }  
+    
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
