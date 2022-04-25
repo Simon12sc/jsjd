@@ -1,112 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Lukeko maan</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li>
-        <a href="./index.html">Home</a>
-        </li>
-        <li>
-      <h1>Lukeko Maan</h1>
-        </li>
-        <li>
-          <a href="./sharemy.html">Share My Story</a>
-       </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <div class="searchNav">
-      
-    <input oninput="search(this.value)" placeholder="Search here" style="color: black; padding: 2px;"></input>
-    <a href="" style="color: black;">Favourite</a>
-    </div>
+ @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Dongle:wght@700&family=Pacifico&family=Rampart+One&display=swap');
+  :root{
+    --blue:#515FFF;
+    --white:#F5F5F5;
+  }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+font-family: 'Balsamiq Sans', cursive;
+color: white;
+outline: none;
+}
+   
+  body{
+    font-size: 20px;
+    display: flex; 
+    flex-direction: column;
     
-    <div class="storySuggestion">
-  
-    </div>
-    
-    
-    
-    
-    
-    
-    
-  </main>
-  <footer>
-    <ul>
-      <li><a href="">Facebook</a></li>
-      <li><a href="">Instagram</a></li>
-      <li><a href="">Youtube</a></li>
-      <li><a href="">Linkdin</a></li>
-    </ul>
-    
-    
-
-    <p>2022 Lukeko Maan &copy; copyright reserved, Copying our content is strictly prohibited</p>
-    
-    
-    
-  </footer>
-  
-  <script>
-    const storySuggestion=document.getElementsByClassName('storySuggestion')[0];
-    
-    let n=20;
-    let topic=["This is not what","computer boc","we are on my own","What is not important","Why we get theseyui uttguu jjjgg box","i like my life","hjdkdjsjs","bye bye"]
-    let a=0;
-    let target=topic.length;
-    for(let i=0;i<n;i++){
-    storySuggestion.innerHTML+=`
-      <div class="storyBox">
-        <div class="storyImageBox">
-          
-        </div>
-        <div class="storyDiscription">
-          <h1>${topic[a]}</h1>
-          <p>discription</p>
-          <a href="./${topic[a]}">Read Now</a>
-        </div>
-      </div>
-      `
-      if(a===target){
-        a=0;
-      }else{
-        a++;
-      }
+  }
+  header{
+    height: 100px;
+  }
+    nav{
+      position: fixed;
+      top:0;
+      left:0;
+      height: 100px;
+      width:100%;
+      background:var(--blue);
+      border-bottom: 1px solid #CACACA;
     }
     
-    let s=document.getElementsByClassName('storyBox');
+    nav ul{
+      display: flex;
+      height: 100%;
+      width: 100%;
+      
+    }
+    
+    nav ul li{
+      list-style-type: none;
+      height: 100%;
+    width:33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    nav ul li a{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width:100%;
+      text-decoration: none;
+      color:var(--white);
+    }
+    nav ul li a:hover{
+      cursor: pointer;
+    }
+    
+    @media screen and (max-width:700px){
+      *{
+        font-size: 13px;
+      }
   
-  function search(val){
-  val=val.toLowerCase();
-      Array.from(s).forEach(e=>{
-       storyTopic=e.innerHTML.split('<h1>')[1].split('</h1>')[0].toLowerCase();
-       if(storyTopic.includes(val)){
-         e.style.display='block';
+      header{
+       height:40px;
+      }
+      nav{
+        height: 40px;
+      }
+      .storyBox{
+        width:150px;
+        height: 200px;
+        margin: 10px;
+      }
+    }
 
-       }else if(val.length===0){
-         e.style.display='block';
-      
-       }else{
-         e.style.display='none';
-       }
-      })
-    
-      
-      
-  }  
-    
-  </script>
-  <script src="main.js"></script>
-</body>
-</html>
+ .storySuggestion{
+   padding: 10px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+ } 
+ .storyImageBox{
+   height: 70%;
+   background: url('1.png');
+   background-size: cover;
+   background-position: center;
+ }
+.storyBox{
+  font-family: sans-serif;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 300px;
+  width:280px;
+  margin: 20px;
+  background: var(--blue);
+  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.3);
+ }
+ .storyDiscription{
+   display: flex;
+   height: 30%;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-size: 12px;
+   padding: 5px;
+}
+  
+ footer{
+   background: var(--blue);
+   height: 200px;
+  width: 100%;
+  padding: 20px;
+  
+ }
+ footer ul{
+   width: 100%;
+   height: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+ }
+ footer ul li{
+  list-style-type: none; 
+ }
+ footer p{
+   
+   text-align: center;
+   
+ }
+ .searchNav{
+   display: flex;
+   padding: 10px;
+   height: 60px;
+   width: 100%;
+   align-items: center;
+   justify-content: space-around;
+ }
+ .searchNav input{
+   border-radius: 2px;
+   border: 1px solid grey;
+   width: 50%;
+   height: 60%;
+ }
